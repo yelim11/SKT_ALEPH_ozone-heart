@@ -1,0 +1,34 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 430 430" role="img" aria-label="듀크 개구리 마스코트 일러스트">
+<defs>
+  <linearGradient id="body" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#16223d"/><stop offset="1" stop-color="#090d1c"/></linearGradient>
+  <linearGradient id="belly" x1="0" y1="0" x2="0" y2="1"><stop stop-color="#ff684f"/><stop offset="1" stop-color="#ce2c3b"/></linearGradient>
+  <linearGradient id="eye" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#b7ff7b"/><stop offset=".5" stop-color="#45d86f"/><stop offset="1" stop-color="#0f6a47"/></linearGradient>
+  <filter id="shadow"><feDropShadow dx="0" dy="10" stdDeviation="10" flood-color="#130717" flood-opacity=".5"/></filter>
+  <filter id="glow"><feGaussianBlur stdDeviation="5" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+</defs>
+<g filter="url(#shadow)">
+  <ellipse cx="216" cy="255" rx="109" ry="126" fill="url(#body)" stroke="#070b18" stroke-width="9"/>
+  <path d="M151 271c22-46 108-47 132 1 24 50 2 105-66 117-66-13-89-68-66-118z" fill="url(#belly)"/>
+  <ellipse cx="165" cy="158" rx="57" ry="70" fill="url(#body)" stroke="#070b18" stroke-width="8"/>
+  <ellipse cx="270" cy="158" rx="57" ry="70" fill="url(#body)" stroke="#070b18" stroke-width="8"/>
+  <ellipse cx="166" cy="155" rx="35" ry="46" fill="url(#eye)" stroke="#0b5136" stroke-width="6"/>
+  <ellipse cx="269" cy="155" rx="35" ry="46" fill="url(#eye)" stroke="#0b5136" stroke-width="6"/>
+  <ellipse cx="170" cy="161" rx="13" ry="24" fill="#0a1320"/><ellipse cx="265" cy="161" rx="13" ry="24" fill="#0a1320"/>
+  <circle cx="178" cy="144" r="8" fill="#fff"/><circle cx="273" cy="144" r="8" fill="#fff"/>
+  <path d="M147 225c37 47 104 47 140 0-5 70-135 72-140 0z" fill="#f56b5c" stroke="#070b18" stroke-width="8"/>
+  <path d="M176 239c24 17 56 17 81 0" fill="none" stroke="#fff3ef" stroke-width="7" stroke-linecap="round"/>
+
+  <path d="M118 233C64 203 37 149 48 108" fill="none" stroke="#111a32" stroke-width="26" stroke-linecap="round"/>
+  <path d="M47 110L19 77M49 108L59 63M51 110l39-22" fill="none" stroke="#111a32" stroke-width="18" stroke-linecap="round"/>
+  <path d="M312 233c55-29 82-83 71-125" fill="none" stroke="#111a32" stroke-width="26" stroke-linecap="round"/>
+  <path d="M383 109l29-32M381 108l-10-46M379 110l-39-22" fill="none" stroke="#111a32" stroke-width="18" stroke-linecap="round"/>
+
+  <path d="M160 360c-45 9-71 31-82 58" fill="none" stroke="#111a32" stroke-width="26" stroke-linecap="round"/>
+  <path d="M271 360c45 9 72 31 83 58" fill="none" stroke="#111a32" stroke-width="26" stroke-linecap="round"/>
+  <path d="M75 416l-22 1m25-2-9-18m280 18 22 1m-24-2 9-18" fill="none" stroke="#111a32" stroke-width="15" stroke-linecap="round"/>
+
+  <path d="M187 307c17-23 45-23 61 0 16 24 5 48-31 72-36-24-47-48-30-72z" fill="#ff4c7d" stroke="#f9c44d" stroke-width="7"/>
+  <path d="M217 304l-10 24 10 47 12-47z" fill="#fff" opacity=".28"/>
+</g>
+<g fill="#fff5ae" filter="url(#glow)"><path d="M90 36l7 18 18 7-18 7-7 18-7-18-18-7 18-7z"/><path d="M340 42l6 15 15 6-15 6-6 15-6-15-15-6 15-6z"/><circle cx="36" cy="241" r="6"/><circle cx="394" cy="252" r="6"/></g>
+</svg>
