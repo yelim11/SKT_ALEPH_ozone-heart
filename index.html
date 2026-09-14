@@ -9,28 +9,61 @@
 </head>
 <body>
   <a class="skip-link" href="#app">본문으로 바로가기</a>
+  <audio id="bgm" src="assets/bgm.mp3" loop preload="none"></audio>
 
   <div class="page-shell">
     <aside class="character-panel" aria-label="쇼콜라와 듀크 콘셉트 아트">
       <div class="character-art" aria-hidden="true"></div>
-      <div class="character-shade" aria-hidden="true"></div>
-      <div class="brand-lockup">
-        <p class="kicker">OZONE HEART RUNE</p>
+      <div class="character-vignette" aria-hidden="true"></div>
+      <div class="hero-glitter" aria-hidden="true"></div>
+
+      <div class="logo-crest" aria-hidden="true">
+        <span class="crest-wing left"></span>
+        <span class="crest-heart gem-pink"></span>
+        <span class="crest-wing right"></span>
+      </div>
+
+      <div class="hero-copy">
+        <p class="hero-eyebrow">OZONE HEART RUNE</p>
         <h1>기온만으로<br>오존을 점치지 않는<br>하트 체크</h1>
-        <p class="character-note"><strong>쇼콜라</strong>와 <strong>듀크</strong>가 실제 오존 값을 함께 확인하라고 안내합니다.</p>
+        <p><strong>쇼콜라</strong>와 <strong>듀크</strong>가 실제 오존 값까지 함께 확인하도록 안내합니다.</p>
       </div>
-      <div class="speech speech-chocola">
-        <strong>쇼콜라</strong>
-        <span>기온이 높다고 오존도 높다고 단정하면 안 돼. 실제 값을 같이 보자.</span>
+
+      <div class="speech-bubble chocola-bubble">
+        <b>쇼콜라</b>
+        <span>기온만 보고 오존을 단정하면 안 돼. 실제 값을 함께 보자.</span>
       </div>
-      <div class="speech speech-duke">
-        <strong>듀크</strong>
+      <div class="speech-bubble duke-bubble">
+        <b>듀크</b>
         <span>온도만 있으면 판단 보류. 오존 값까지 확인하면 기록할 수 있어.</span>
       </div>
+
+      <nav class="side-nav" aria-label="페이지 메뉴">
+        <a href="#check"><span class="nav-gem gem-pink"></span><b>오존 체크</b></a>
+        <a href="#history"><span class="nav-gem gem-red"></span><b>오늘의 기록</b></a>
+        <a href="#guide"><span class="nav-gem gem-purple"></span><b>하트 도감</b></a>
+        <a href="#paper"><span class="nav-gem gem-yellow"></span><b>연구 근거</b></a>
+      </nav>
+
+      <button id="bgmToggle" class="bgm-toggle" type="button" aria-pressed="false">
+        <span class="bgm-gem gem-pink" aria-hidden="true"></span>
+        <span class="bgm-label">BGM PLAY</span>
+      </button>
+      <p id="bgmHint" class="bgm-hint">assets/bgm.mp3</p>
     </aside>
 
     <main id="app" class="app-panel">
-      <header class="paper-card">
+      <div class="night-sky" aria-hidden="true"></div>
+      <div class="ribbon ribbon-a" aria-hidden="true"></div>
+      <div class="ribbon ribbon-b" aria-hidden="true"></div>
+
+      <header id="paper" class="paper-card ornate-card">
+        <div class="winged-heart" aria-hidden="true">
+          <span class="wing left"></span>
+          <span class="header-gem gem-pink"></span>
+          <span class="wing right"></span>
+        </div>
+        <div class="lace-top" aria-hidden="true"></div>
         <p class="paper-label">과제 10 연구를 실제로 쓰는 애플리케이션</p>
         <h2>서울 기온과 오존 관계 탐구</h2>
         <p class="paper-topic">주제: 기온이 오존 농도에 미치는 영향</p>
@@ -46,10 +79,13 @@
         </div>
       </header>
 
-      <section class="oracle-card" aria-labelledby="oracle-title">
+      <section id="check" class="oracle-card ornate-card" aria-labelledby="oracle-title">
+        <div class="ornament-top" aria-hidden="true"><i></i><span class="ornament-gem gem-red"></span><i></i></div>
+        <div class="card-corner corner-tl"></div><div class="card-corner corner-tr"></div>
+        <div class="card-corner corner-bl"></div><div class="card-corner corner-br"></div>
         <div class="section-heading">
           <div>
-            <p class="step-label">STEP 1</p>
+            <p class="step-label">STEP 1 · HEART ORACLE</p>
             <h2 id="oracle-title">오늘의 기온을 입력해 주세요</h2>
           </div>
           <button id="liveBtn" class="btn btn-secondary" type="button">서울 현재값 자동 확인</button>
@@ -76,21 +112,21 @@
         </div>
 
         <div class="actions">
-          <button id="checkBtn" class="btn btn-primary" type="button">오존 하트 체크</button>
+          <button id="checkBtn" class="btn btn-primary" type="button"><span>오존 하트 체크하기</span></button>
           <button id="demoBtn" class="btn btn-ghost" type="button">예시 데이터로 체험</button>
         </div>
         <p id="formError" class="form-error" role="alert" aria-live="polite"></p>
       </section>
 
-      <section id="resultCard" class="result-card state-idle" aria-labelledby="resultTitle" aria-live="polite">
+      <section id="resultCard" class="result-card ornate-card state-idle" aria-labelledby="resultTitle" aria-live="polite">
         <div class="result-gem-wrap" aria-hidden="true">
-          <div id="resultGem" class="gem-heart gem-rose">
-            <i class="facet facet-a"></i>
-            <i class="facet facet-b"></i>
-            <i class="facet facet-c"></i>
-            <i class="facet facet-d"></i>
+          <div class="sparkle-ring ring-one"></div>
+          <div class="sparkle-ring ring-two"></div>
+          <div class="gem-frame">
+            <div id="resultGem" class="gem-heart gem-pink"></div>
           </div>
-          <div class="gem-crown"></div>
+          <div class="sparkle s1"></div><div class="sparkle s2"></div><div class="sparkle s3"></div><div class="sparkle s4"></div>
+          <div class="gem-banner">OZONE HEART</div>
         </div>
         <div class="result-copy">
           <p class="step-label">STEP 2 · 논문 결과 적용</p>
@@ -107,33 +143,21 @@
         </div>
       </section>
 
-      <section class="logic-card" aria-labelledby="logic-title">
+      <section class="logic-card ornate-card" aria-labelledby="logic-title">
         <div class="section-heading compact">
           <div>
-            <p class="step-label">STEP 3</p>
+            <p class="step-label">STEP 3 · RESEARCH SPELL</p>
             <h2 id="logic-title">이 앱이 논문을 실제로 쓰는 방식</h2>
           </div>
         </div>
         <div class="logic-grid">
-          <article>
-            <span class="logic-num">01</span>
-            <h3>기온만 입력</h3>
-            <p>오존을 추측하지 않고 “판단 보류”를 보여 줍니다. 논문의 전체 상관 결과를 핵심 규칙으로 사용합니다.</p>
-          </article>
-          <article>
-            <span class="logic-num">02</span>
-            <h3>오존 값까지 확인</h3>
-            <p>현재 또는 직접 입력한 오존 값을 그대로 보여 줍니다. 기온 때문에 높아졌다고 인과를 단정하지 않습니다.</p>
-          </article>
-          <article>
-            <span class="logic-num">03</span>
-            <h3>기록 비교</h3>
-            <p>최근 확인값을 브라우저에 저장해 온도와 오존이 항상 같이 움직인다고 오해하지 않도록 비교할 수 있습니다.</p>
-          </article>
+          <article><span class="logic-gem gem-orange"></span><span class="logic-num">01</span><h3>기온만 입력</h3><p>오존을 추측하지 않고 “판단 보류”를 보여 줍니다. 논문의 전체 상관 결과를 핵심 규칙으로 사용합니다.</p></article>
+          <article><span class="logic-gem gem-green"></span><span class="logic-num">02</span><h3>오존 값까지 확인</h3><p>현재 또는 직접 입력한 오존 값을 그대로 보여 줍니다. 기온 때문에 높아졌다고 인과를 단정하지 않습니다.</p></article>
+          <article><span class="logic-gem gem-purple"></span><span class="logic-num">03</span><h3>기록 비교</h3><p>최근 확인값을 브라우저에 저장해 온도와 오존이 항상 같이 움직인다고 오해하지 않도록 비교할 수 있습니다.</p></article>
         </div>
       </section>
 
-      <section class="history-card" aria-labelledby="history-title">
+      <section id="history" class="history-card ornate-card" aria-labelledby="history-title">
         <div class="section-heading compact">
           <div>
             <p class="step-label">RECENT HEARTS</p>
@@ -145,17 +169,20 @@
         <div id="historyList" class="history-list" aria-live="polite"></div>
       </section>
 
-      <section class="gem-guide" aria-labelledby="gem-title">
-        <div>
-          <p class="step-label">GEM PALETTE</p>
-          <h2 id="gem-title">보석 하트는 “상태”를 보여 줍니다</h2>
-          <p>색상은 위험 등급이 아니라 데이터 출처와 확인 상태를 구분하는 시각 장치입니다.</p>
+      <section id="guide" class="gem-guide ornate-card" aria-labelledby="gem-title">
+        <div class="guide-copy">
+          <p class="step-label">GEM HEART COLLECTION</p>
+          <h2 id="gem-title">보석 하트 도감</h2>
+          <p>레퍼런스의 각진 보석 하트 느낌을 그대로 가져와 확인 상태를 구분했습니다. 색상은 공식 위험 등급이 아니라 데이터 출처와 확인 상태를 뜻합니다.</p>
         </div>
         <div class="gem-strip" aria-label="상태별 보석 하트 색상 안내">
-          <div class="gem-key"><span class="mini-gem amber"></span><b>판단 보류</b></div>
-          <div class="gem-key"><span class="mini-gem emerald"></span><b>실시간 확인</b></div>
-          <div class="gem-key"><span class="mini-gem rose"></span><b>직접 입력</b></div>
-          <div class="gem-key"><span class="mini-gem violet"></span><b>예시 체험</b></div>
+          <div class="gem-key"><span class="mini-gem gem-orange"></span><b>판단 보류</b><small>기온만 입력</small></div>
+          <div class="gem-key"><span class="mini-gem gem-green"></span><b>실시간 확인</b><small>공개 API 값</small></div>
+          <div class="gem-key"><span class="mini-gem gem-pink"></span><b>직접 입력</b><small>사용자 확인값</small></div>
+          <div class="gem-key"><span class="mini-gem gem-purple"></span><b>예시 체험</b><small>예시 데이터</small></div>
+        </div>
+        <div class="collection-ribbon" aria-hidden="true">
+          <span class="tiny-gem gem-yellow"></span><span class="tiny-gem gem-orange"></span><span class="tiny-gem gem-green"></span><span class="tiny-gem gem-pink"></span><span class="tiny-gem gem-purple"></span><span class="tiny-gem gem-red"></span>
         </div>
       </section>
 
