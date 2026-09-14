@@ -1,0 +1,48 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 720 900" role="img" aria-label="쇼콜라 마법소녀 일러스트">
+<defs>
+  <linearGradient id="hair" x1="0" x2="1"><stop stop-color="#ff8b45"/><stop offset=".48" stop-color="#e84745"/><stop offset="1" stop-color="#9f1e54"/></linearGradient>
+  <linearGradient id="hat" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#b42f78"/><stop offset=".55" stop-color="#5b174f"/><stop offset="1" stop-color="#280e34"/></linearGradient>
+  <linearGradient id="dress" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#4a163d"/><stop offset=".5" stop-color="#210d2b"/><stop offset="1" stop-color="#771d5a"/></linearGradient>
+  <linearGradient id="gem" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#fff2fb"/><stop offset=".28" stop-color="#ff82c0"/><stop offset=".55" stop-color="#f22982"/><stop offset="1" stop-color="#8d1757"/></linearGradient>
+  <filter id="glow"><feGaussianBlur stdDeviation="9" result="b"/><feMerge><feMergeNode in="b"/><feMergeNode in="SourceGraphic"/></feMerge></filter>
+  <filter id="shadow"><feDropShadow dx="0" dy="16" stdDeviation="12" flood-color="#160518" flood-opacity=".45"/></filter>
+</defs>
+<g filter="url(#shadow)">
+  <path d="M170 210C105 278 75 406 86 548c10 130 83 232 173 285 87 50 207 37 287-35 81-73 111-193 77-305-32-107-110-184-199-225-91-43-190-38-254-58z" fill="url(#hair)"/>
+  <path d="M255 132c-44 22-96 67-122 114 78-33 166-38 259-8 66 21 126 60 176 112 8-111-34-221-117-262-73-36-139 6-196 44z" fill="url(#hat)" stroke="#ef83ba" stroke-width="8"/>
+  <path d="M110 246c119-57 338-60 482 58-65-16-135-9-203 17-94 36-174 15-279-75z" fill="#401036" stroke="#ff84ba" stroke-width="9"/>
+  <path d="M452 82c45 18 90 56 120 103l-55-2 15 57-63-37-23 53-14-71-67 7 45-48-42-43 84 22z" fill="#e64e97" stroke="#ffadd1" stroke-width="6"/>
+  <path d="M457 102c19 15 38 31 54 50l-36 3 7 31-31-20-13 27-6-37-35 3 23-24-22-23 44 12z" fill="#6c1b59"/>
+
+  <ellipse cx="338" cy="381" rx="147" ry="159" fill="#ffd5c8" stroke="#8a3556" stroke-width="6"/>
+  <path d="M198 355c35-121 145-170 260-117 48 22 74 60 89 96-63-44-118-62-174-58-75 5-122 36-175 79z" fill="url(#hair)"/>
+  <path d="M210 337c17 45 29 76 22 126-43-12-76-42-89-80 11-27 35-42 67-46z" fill="url(#hair)"/>
+  <path d="M455 301c26 23 50 57 63 99 14 47 10 89-8 127 55-38 83-95 76-158-10-83-62-136-131-158z" fill="url(#hair)"/>
+
+  <ellipse cx="291" cy="376" rx="34" ry="45" fill="#fff"/>
+  <ellipse cx="295" cy="381" rx="20" ry="29" fill="#45d477" stroke="#144d36" stroke-width="5"/>
+  <ellipse cx="300" cy="376" rx="9" ry="15" fill="#101525"/><circle cx="307" cy="367" r="5" fill="#fff"/>
+  <path d="M393 371c23-19 46-17 66 1" fill="none" stroke="#48223b" stroke-width="8" stroke-linecap="round"/>
+  <path d="M402 382c18 12 36 13 54 1" fill="none" stroke="#48223b" stroke-width="5" stroke-linecap="round"/>
+  <path d="M319 455c40 22 80 18 112-13-8 49-38 73-72 69-29-4-43-26-40-56z" fill="#98254e" stroke="#5d1836" stroke-width="5"/>
+  <path d="M405 453l-20 4 12 22z" fill="#fff5ec"/>
+  <circle cx="259" cy="439" r="18" fill="#ff91a9" opacity=".55"/><circle cx="456" cy="430" r="18" fill="#ff91a9" opacity=".55"/>
+
+  <path d="M193 590c69-74 171-96 274-49 95 44 142 133 139 247H118c2-80 24-145 75-198z" fill="url(#dress)" stroke="#d96a9e" stroke-width="7"/>
+  <path d="M233 591c34 41 67 61 104 67 47 7 94-8 137-46l-35 99H270z" fill="#fff1f7" stroke="#b34c82" stroke-width="6"/>
+  <path d="M312 565l48 26 49-25-16 49 34 36-54-4-13 50-22-47-52 5 37-39z" fill="#e33d87" stroke="#f7b8d7" stroke-width="6"/>
+  <path d="M334 600c13-17 39-17 52 0 13 18 5 36-26 57-31-21-39-39-26-57z" fill="url(#gem)" stroke="#f7c75c" stroke-width="7"/>
+
+  <path d="M473 580c63 1 117 24 158 68 28 30 39 73 19 98-20 25-58 20-80-9-26-34-53-57-93-69z" fill="#ffd5c8" stroke="#7f3153" stroke-width="7"/>
+  <path d="M548 625c23 5 42 16 57 31" fill="none" stroke="#ffebf3" stroke-width="18" stroke-linecap="round"/>
+  <path d="M589 635c41-22 67-17 82-2-26 4-43 12-58 29" fill="#ffd5c8" stroke="#7f3153" stroke-width="7"/>
+
+  <g transform="translate(586 554)" filter="url(#glow)">
+    <path d="M0 44C0 8 43-8 66 18 89-8 132 8 132 44c0 42-66 84-66 84S0 86 0 44z" fill="url(#gem)" stroke="#fff1f7" stroke-width="7"/>
+    <path d="M66 18L49 53l17 75 18-75z" fill="#fff" opacity=".28"/>
+    <path d="M3 46l46 7 17-35 18 35 45-7" fill="none" stroke="#ffd9eb" stroke-width="4" opacity=".8"/>
+  </g>
+</g>
+<g fill="#fff8c7" filter="url(#glow)"><path d="M98 132l8 20 20 8-20 8-8 20-8-20-20-8 20-8z"/><path d="M618 242l7 17 17 7-17 7-7 17-7-17-17-7 17-7z"/><circle cx="151" cy="520" r="7"/><circle cx="646" cy="489" r="6"/></g>
+<g fill="none" stroke="#ff70b5" stroke-width="7" stroke-linecap="round" opacity=".85"><path d="M55 611c97 42 126 122 185 161 92 62 204 12 260-55"/><path d="M44 638c81 26 127 87 180 118"/></g>
+</svg>
