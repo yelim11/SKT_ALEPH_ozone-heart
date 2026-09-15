@@ -40,8 +40,7 @@ https://yelim11.github.io/SKT_ALEPH_ozone-heart/
 - 과제 10의 연구 자료만 사용
 
 ## 주요 파일
-- `index.html`: 앱
-- `assets/hero.webp`: 상단 디자인 이미지
+- `index.html`: 앱 전체 UI와 기능. 상단 캐릭터·하트 보석 디자인도 외부 이미지 없이 SVG로 포함되어 이미지 경로 오류가 없습니다.
 - `data/raw_seoul_2025_ozone_temperature.csv`: 91일 원자료
 - `research/results_summary.csv`: 주요 통계 결과
 - `research/temperature_quartiles.csv`: 사분위 결과
