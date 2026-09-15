@@ -7,12 +7,12 @@
 <title>쇼콜라와 보는 오존도</title>
 <meta name="description" content="2025년 서울 기온·오존 연구 결과를 실제로 사용하는 논문 기반 웹앱">
 <style>
-*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#f8c4dc;font-family:Pretendard,"Noto Sans KR",Arial,sans-serif;color:#7b1e49}body{display:flex;justify-content:center}.stage{position:relative;width:min(100vw,1024px);aspect-ratio:1024/1365;overflow:hidden;background:#f7c0d9;box-shadow:0 0 50px rgba(117,21,65,.23)}.design{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:contain;user-select:none;-webkit-user-drag:none}.temp-input{position:absolute;z-index:5;left:24.2%;top:35.18%;width:29.6%;height:2.95%;border:0;outline:0;border-radius:10px;background:rgba(255,255,255,.97);color:#82365c;font-weight:800;font-size:clamp(10px,1.75vw,18px);padding:0 8px;box-shadow:none}.temp-input::placeholder{color:#9fa0b0;font-weight:600}.analyze{position:absolute;z-index:6;left:61.6%;top:34.75%;width:23.9%;height:4.35%;border:0;border-radius:999px;background:transparent;cursor:pointer}.analyze:focus-visible{outline:3px solid #8d1b54;outline-offset:2px}.analyze:hover{background:rgba(255,255,255,.12);box-shadow:0 0 22px rgba(255,255,255,.8)}.result-pill{position:absolute;z-index:5;left:79.2%;top:42.45%;width:15.3%;height:2.65%;border-radius:999px;background:rgba(255,247,251,.98);display:flex;align-items:center;justify-content:center;color:#dc3272;font-weight:900;font-size:clamp(8px,1.22vw,13px);white-space:nowrap}.result-copy{position:absolute;z-index:5;left:19.8%;top:46.15%;width:30.4%;height:7.55%;padding:2px 4px;background:rgba(255,255,255,.965);display:flex;flex-direction:column;justify-content:center;color:#243960;font-size:clamp(8px,1.18vw,13px);line-height:1.42;border-radius:7px}.result-copy b{display:block;color:#f12369;font-size:clamp(9px,1.35vw,15px);line-height:1.3;margin-bottom:3px}.result-copy strong{color:#f12369;font-weight:900}.toast{position:absolute;z-index:20;left:50%;top:39.3%;transform:translate(-50%,-8px);max-width:72%;padding:9px 16px;border-radius:999px;background:rgba(100,23,60,.94);color:white;font-size:clamp(9px,1.28vw,14px);font-weight:800;opacity:0;pointer-events:none;transition:.18s ease;text-align:center;box-shadow:0 6px 20px rgba(94,21,58,.24)}.toast.show{opacity:1;transform:translate(-50%,0)}.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}@media(max-width:560px){.stage{width:100vw}.temp-input{font-size:2.4vw;padding:0 4px}.result-pill{font-size:1.75vw}.result-copy{font-size:1.75vw}.result-copy b{font-size:2vw}.toast{font-size:2vw;padding:7px 10px}}
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#f8c4dc;font-family:Pretendard,"Noto Sans KR",Arial,sans-serif;color:#7b1e49}body{display:flex;justify-content:center}.stage{position:relative;width:min(100vw,1024px);aspect-ratio:1024/1365;overflow:hidden;background:#f7c0d9;box-shadow:0 0 50px rgba(117,21,65,.23)}.design{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;user-select:none;-webkit-user-drag:none}.temp-input{position:absolute;z-index:5;left:24.2%;top:35.18%;width:29.6%;height:2.95%;border:0;outline:0;border-radius:10px;background:rgba(255,255,255,.97);color:#82365c;font-weight:800;font-size:clamp(10px,1.75vw,18px);padding:0 8px;box-shadow:none}.temp-input::placeholder{color:#9fa0b0;font-weight:600}.analyze{position:absolute;z-index:6;left:61.6%;top:34.75%;width:23.9%;height:4.35%;border:0;border-radius:999px;background:transparent;cursor:pointer}.analyze:focus-visible{outline:3px solid #8d1b54;outline-offset:2px}.analyze:hover{background:rgba(255,255,255,.12);box-shadow:0 0 22px rgba(255,255,255,.8)}.result-pill{position:absolute;z-index:5;left:79.2%;top:42.45%;width:15.3%;height:2.65%;border-radius:999px;background:rgba(255,247,251,.98);display:flex;align-items:center;justify-content:center;color:#dc3272;font-weight:900;font-size:clamp(8px,1.22vw,13px);white-space:nowrap}.result-copy{position:absolute;z-index:5;left:19.8%;top:46.15%;width:30.4%;height:7.55%;padding:2px 4px;background:rgba(255,255,255,.965);display:flex;flex-direction:column;justify-content:center;color:#243960;font-size:clamp(8px,1.18vw,13px);line-height:1.42;border-radius:7px}.result-copy b{display:block;color:#f12369;font-size:clamp(9px,1.35vw,15px);line-height:1.3;margin-bottom:3px}.result-copy strong{color:#f12369;font-weight:900}.toast{position:absolute;z-index:20;left:50%;top:39.3%;transform:translate(-50%,-8px);max-width:72%;padding:9px 16px;border-radius:999px;background:rgba(100,23,60,.94);color:white;font-size:clamp(9px,1.28vw,14px);font-weight:800;opacity:0;pointer-events:none;transition:.18s ease;text-align:center;box-shadow:0 6px 20px rgba(94,21,58,.24)}.toast.show{opacity:1;transform:translate(-50%,0)}.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}@media(max-width:560px){.stage{width:100vw}.temp-input{font-size:2.4vw;padding:0 4px}.result-pill{font-size:1.75vw}.result-copy{font-size:1.75vw}.result-copy b{font-size:2vw}.toast{font-size:2vw;padding:7px 10px}}
 </style>
 </head>
 <body>
 <main class="stage" aria-label="쇼콜라와 보는 오존도 앱">
-  <img class="design" src="assets/design.webp" alt="쇼콜라와 듀크가 등장하는 핑크 하트 보석 디자인의 오존 분석 앱 화면">
+  <img id="design" class="design" alt="쇼콜라와 듀크가 등장하는 핑크 하트 보석 디자인의 오존 분석 앱 화면">
   <label class="sr" for="temp">일평균 기온</label>
   <input id="temp" class="temp-input" type="number" step="0.1" inputmode="decimal" value="25" aria-label="기온 입력">
   <button id="analyze" class="analyze" type="button" aria-label="입력한 기온 분석하기"></button>
@@ -23,7 +23,26 @@
   </div>
   <div id="toast" class="toast" role="status" aria-live="polite"></div>
 </main>
+<script src="assets/d01.js?v=3"></script>
+<script src="assets/d02.js?v=3"></script>
+<script src="assets/d03.js?v=3"></script>
+<script src="assets/d04.js?v=3"></script>
+<script src="assets/d05.js?v=3"></script>
+<script src="assets/d06.js?v=3"></script>
+<script src="assets/d07.js?v=3"></script>
+<script src="assets/d08.js?v=3"></script>
+<script src="assets/d09.js?v=3"></script>
+<script src="assets/d10.js?v=3"></script>
+<script src="assets/d11.js?v=3"></script>
+<script src="assets/d12.js?v=3"></script>
+<script src="assets/d13.js?v=3"></script>
+<script src="assets/d14.js?v=3"></script>
+<script src="assets/d15.js?v=3"></script>
+<script src="assets/d16.js?v=3"></script>
 <script>
+const design=document.getElementById('design');
+design.src='data:image/webp;base64,'+(window.__DESIGN_B64||'');
+window.__DESIGN_B64='';
 const input=document.getElementById('temp');
 const btn=document.getElementById('analyze');
 const pill=document.getElementById('pill');
