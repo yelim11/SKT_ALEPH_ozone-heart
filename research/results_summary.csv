@@ -1,0 +1,8 @@
+metric,value,unit
+분석일수,91.0,days
+Pearson r,-0.06970044973308379,
+Pearson p-value,0.511497619164047,
+Spearman rho,-0.04794157817327868,
+Spearman p-value,0.6517942274291472,
+선형회귀 기울기,-0.00014950960622111504,O3 source-value / degC
+R-squared,0.00485815269299414,

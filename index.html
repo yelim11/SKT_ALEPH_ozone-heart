@@ -1,66 +1,10 @@
 <!doctype html>
-<html lang="ko">
-<head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#ef8ab6">
-<title>쇼콜라와 보는 오존도</title>
-<meta name="description" content="2025년 서울 기온·오존 연구 결과를 실제로 사용하는 논문 기반 웹앱">
+<html lang="ko"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover"><meta name="theme-color" content="#f68fbd"><title>쇼콜라와 보는 오존도 | 논문 기반 앱</title><meta name="description" content="2025년 서울 기온·오존 논문 결과를 실제로 사용하는 BR-B 애플리케이션">
 <style>
-*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#f9d9e8;font-family:Pretendard,"Noto Sans KR",Arial,sans-serif}body{display:flex;justify-content:center}.app{position:relative;width:min(100vw,1086px);aspect-ratio:3/4;background:#ffd8e8;overflow:hidden;box-shadow:0 0 40px rgba(126,26,70,.2)}.design{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;display:block;user-select:none;-webkit-user-drag:none}.temp{position:absolute;left:18.4%;top:33.13%;width:37.2%;height:3.65%;border:0;outline:0;background:rgba(255,255,255,.93);border-radius:1.1vw;padding:0 4.5% 0 3.5%;font-size:clamp(12px,2.2vw,24px);font-weight:700;color:#c72a67;box-shadow:none}.temp::placeholder{color:#aaa8bd}.analyze{position:absolute;left:58.4%;top:32.95%;width:22.5%;height:3.9%;border:0;background:transparent;cursor:pointer;border-radius:999px}.analyze:focus-visible{outline:3px solid #8a2be2;outline-offset:3px}.msg{position:absolute;left:17%;top:36.9%;width:66%;min-height:2.2%;display:flex;align-items:center;justify-content:center;text-align:center;font-size:clamp(9px,1.45vw,16px);font-weight:800;color:#bd1b5f;pointer-events:none}.pill{position:absolute;left:76.7%;top:39.75%;width:17.7%;height:3.0%;display:flex;align-items:center;justify-content:center;background:rgba(255,246,251,.97);border:1px solid #f28fb7;border-radius:999px;color:#d52d70;font-weight:900;font-size:clamp(9px,1.35vw,15px);padding:0 4px}.qbox{position:absolute;left:19.2%;top:44.0%;width:27.5%;height:8.0%;background:rgba(255,255,255,.92);border-radius:1vw;padding:.45% .8%;display:flex;flex-direction:column;justify-content:center;color:#485172}.qtitle{font-size:clamp(10px,1.55vw,18px);font-weight:900;line-height:1.28;color:#f02a78;margin-bottom:.4em}.qline{font-size:clamp(8px,1.35vw,15px);line-height:1.36}.qmean{color:#ef2c78;font-weight:900}.range{margin-top:.22em;font-size:clamp(7px,1.05vw,12px);color:#7d6b80}.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}@media(max-width:520px){.app{width:100vw}.temp{border-radius:8px;padding-left:13px;padding-right:24px}.qbox{border-radius:5px}}
-</style>
-</head>
-<body>
-<main class="app" aria-label="쇼콜라와 보는 오존도">
-  <img class="design" src="assets/design.svg" alt="쇼콜라와 듀크가 함께하는 서울 오존 안내 앱 디자인">
-  <label class="sr" for="temp">오늘의 일평균 기온</label>
-  <input id="temp" class="temp" type="number" inputmode="decimal" step="0.1" value="25" placeholder="기온을 입력해주세요 (예: 25)" aria-describedby="msg">
-  <button id="analyze" class="analyze" type="button" aria-label="논문 결과로 분석하기"></button>
-  <div id="msg" class="msg" role="status" aria-live="polite"></div>
-  <div id="pill" class="pill">입력한 기온: 25°C</div>
-  <div class="qbox" aria-live="polite">
-    <div id="qtitle" class="qtitle">입력한 기온은 높은 기온 구간에 해당해요!</div>
-    <div class="qline">이 구간의 평균 O₃ 자료값은 <span id="qmean" class="qmean">0.03600</span> 이었습니다.</div>
-    <div id="range" class="range">논문 관측 구간: 23.05°C 초과 ~ 28.8°C</div>
-  </div>
-</main>
+*{box-sizing:border-box}html,body{margin:0;min-height:100%;font-family:Pretendard,"Noto Sans KR","Apple SD Gothic Neo",Arial,sans-serif;background:radial-gradient(circle at 50% 10%,#ffeef7,#f8c5da 42%,#d86c9e);color:#56334b}body{min-height:100svh;display:grid;place-items:center}.app{position:relative;width:min(100vw,75svh,1086px);aspect-ratio:3/4;overflow:hidden;background:#ffd6e8;box-shadow:0 20px 70px #55132f47;container-type:inline-size}.design{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}.paper-title{position:absolute;z-index:2;left:31%;top:1.2%;width:45%;padding:.55% 1.2%;border:1px solid #ffffffdf;border-radius:999px;background:#7a1740a8;color:#fff;text-align:center;font-size:1.48cqw;font-weight:800;line-height:1.3;text-shadow:0 1px 2px #50001e73}.temp{position:absolute;z-index:3;left:18.4%;top:33.13%;width:37.2%;height:3.65%;border:0;outline:0;background:#fffffff2;border-radius:1.4cqw;padding:0 5.4% 0 3.3%;font-size:2.15cqw;font-weight:800;color:#c72a67}.temp::placeholder{color:#aaa8bd}.analyze{position:absolute;z-index:3;left:58.4%;top:32.95%;width:22.5%;height:3.9%;border:0;background:transparent;cursor:pointer;border-radius:999px}.analyze:hover{box-shadow:0 0 0 .35cqw #ffffffa3,0 0 2.3cqw #ff2a7f8c}.msg{position:absolute;z-index:4;left:16.5%;top:36.92%;width:67%;min-height:2.1%;display:flex;align-items:center;justify-content:center;text-align:center;font-size:1.25cqw;font-weight:900;color:#b5165b;pointer-events:none}.pill{position:absolute;z-index:4;left:76.7%;top:39.75%;width:17.7%;height:3%;display:flex;align-items:center;justify-content:center;background:#fff6fbf7;border:.12cqw solid #f28fb7;border-radius:999px;color:#d52d70;font-weight:900;font-size:1.3cqw}.qbox{position:absolute;z-index:3;left:19.2%;top:44%;width:27.5%;height:8%;background:#ffffffe8;border-radius:1.3cqw;padding:.6% .9%;display:flex;flex-direction:column;justify-content:center;color:#485172}.qtitle{font-size:1.52cqw;font-weight:950;line-height:1.28;color:#f02a78;margin-bottom:.38em}.qline{font-size:1.28cqw;line-height:1.4}.qmean{color:#ef2c78;font-weight:950}.range{margin-top:.18em;font-size:1cqw;color:#776778}.evidence-btn{position:absolute;z-index:3;left:52.3%;top:65.2%;width:41%;height:15.8%;border:0;background:transparent;border-radius:2cqw;cursor:pointer}.evidence-btn:hover{box-shadow:inset 0 0 0 .35cqw #e7317e73}.evidence-hint{position:absolute;z-index:4;right:7.5%;top:78.6%;background:#fffffff0;border:.13cqw solid #f39bc0;border-radius:999px;padding:.35% .9%;font-size:1.05cqw;color:#d22f73;font-weight:900;pointer-events:none}.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}.modal{position:fixed;z-index:50;inset:0;display:none;place-items:center;padding:18px;background:#370c2694;backdrop-filter:blur(8px)}.modal.open{display:grid}.card{position:relative;width:min(690px,96vw);max-height:90svh;overflow:auto;background:linear-gradient(#fffafd,#fff4fa);border:4px solid #f6a3c6;border-radius:28px;box-shadow:0 25px 80px #4604225c;padding:30px 28px 26px}.card h2{margin:0 50px 8px 0;color:#d61f69}.lead{line-height:1.55;font-weight:650}.close{position:absolute;right:22px;top:19px;width:42px;height:42px;border-radius:50%;border:1px solid #ef9fc0;background:#fff;color:#c52768;font-size:25px;font-weight:900;cursor:pointer}.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin:16px 0}.stat{padding:12px;border:1px solid #f1c0d4;border-radius:14px;background:#fff;text-align:center}.stat b{display:block;color:#cd2868;font-size:18px}.stat span{font-size:12px;color:#7f6572}.table{overflow:auto;border:1px solid #efbfd3;border-radius:14px;background:#fff}table{width:100%;border-collapse:collapse;font-size:14px}th,td{padding:10px 9px;border-bottom:1px solid #f2dce6;text-align:center}th{background:#fff0f7;color:#b32863}.notice{margin-top:15px;padding:13px 15px;border-left:5px solid #e83d82;background:#fff;border-radius:10px;line-height:1.55;font-weight:700}.ok{margin-top:14px;border:0;border-radius:999px;padding:10px 15px;background:#e92e78;color:#fff;font-weight:900;cursor:pointer}@media(max-width:700px){body{display:block}.app{width:100vw;box-shadow:none}.stats{grid-template-columns:1fr}.card{padding:25px 18px 20px}}
+</style></head><body>
+<main class="app"><img class="design" src="assets/design.webp" alt="쇼콜라와 듀크가 함께하는 서울 오존 안내 앱 디자인"><div class="paper-title"><b>논문</b> 「2025년 오존 시즌 서울의 일평균 기온과 일별 오존 자료값의 관계」</div><label class="sr" for="temp">확인할 일평균 기온</label><input id="temp" class="temp" type="number" inputmode="decimal" step="0.1" value="25" placeholder="기온을 입력해주세요 (예: 25)"><button id="analyze" class="analyze" type="button" aria-label="논문 결과로 분석하기"></button><div id="msg" class="msg" role="status"></div><div id="pill" class="pill">입력한 기온: 25°C</div><div class="qbox"><div id="qtitle" class="qtitle">입력한 기온은 높은 기온 구간(Q4)에 해당해요!</div><div class="qline">이 구간의 평균 O₃ 연구값은 <span id="qmean" class="qmean">0.03600</span> 이었습니다.</div><div id="range" class="range">논문 관측 구간: 23.05°C 초과 ~ 28.8°C</div></div><button id="evidence" class="evidence-btn" type="button" aria-label="논문 실제 근거 보기"></button><div class="evidence-hint">논문 실제 근거 보기</div></main>
+<div id="modal" class="modal" role="dialog" aria-modal="true" aria-labelledby="mt"><section class="card"><button id="x" class="close" type="button" aria-label="닫기">×</button><h2 id="mt">논문 데이터에서 직접 확인하기</h2><p class="lead">91일 전체 분석에서는 기온과 O₃의 뚜렷한 양의 관계가 확인되지 않았습니다. 매우 더운 날에도 O₃가 낮았던 실제 사례가 있어, 기온 하나만으로 오늘의 오존을 단정하면 안 됩니다.</p><div class="stats"><div class="stat"><b>r = -0.070</b><span>Pearson 상관</span></div><div class="stat"><b>p = 0.511</b><span>통계적으로 뚜렷하지 않음</span></div><div class="stat"><b>R² = 0.00486</b><span>기온 단독 설명력 매우 작음</span></div></div><div class="table"><table><thead><tr><th>날짜</th><th>기온</th><th>O₃ 연구값</th><th>의미</th></tr></thead><tbody><tr><td>2025-06-19</td><td>28.8°C</td><td>0.0113</td><td>최고 기온인데 O₃ 낮음</td></tr><tr><td>2025-06-30</td><td>28.4°C</td><td>0.0108</td><td>매우 더운 날, 전체 최저 O₃</td></tr><tr><td>2025-06-16</td><td>22.8°C</td><td>0.0691</td><td>최고 O₃는 최고 기온이 아님</td></tr></tbody></table></div><div class="notice">이 앱은 오존을 예측하거나 건강·환경 기준을 판정하지 않습니다. 논문 결과를 이용해 <b>기온 하나만으로 오존 수준을 단정하지 않도록</b> 돕습니다. 실제 외출 전에는 공식 대기질 정보를 함께 확인하세요.</div><button id="ok" class="ok" type="button">확인했어요</button></section></div>
 <script>
-const input=document.getElementById('temp');
-const btn=document.getElementById('analyze');
-const msg=document.getElementById('msg');
-const pill=document.getElementById('pill');
-const qtitle=document.getElementById('qtitle');
-const qmean=document.getElementById('qmean');
-const range=document.getElementById('range');
-const groups=[
- {max:14.35,title:'입력한 기온은 낮은 기온 구간에 해당해요!',mean:'0.03837',range:'논문 관측 구간: 4.5°C ~ 14.35°C'},
- {max:19.20,title:'입력한 기온은 중간 기온 구간(Q2)에 해당해요!',mean:'0.03687',range:'논문 관측 구간: 14.35°C 초과 ~ 19.20°C'},
- {max:23.05,title:'입력한 기온은 중간 기온 구간(Q3)에 해당해요!',mean:'0.04536',range:'논문 관측 구간: 19.20°C 초과 ~ 23.05°C'},
- {max:28.80,title:'입력한 기온은 높은 기온 구간에 해당해요!',mean:'0.03600',range:'논문 관측 구간: 23.05°C 초과 ~ 28.8°C'}
-];
-function analyze(){
- const t=Number(input.value);
- if(input.value.trim()===''||!Number.isFinite(t)){
-   msg.textContent='기온을 숫자로 입력해 주세요.'; return;
- }
- if(t<4.5||t>28.8){
-   msg.textContent='논문이 관측한 4.5°C~28.8°C 범위 밖입니다. 이 연구만으로는 해당 기온을 해석하지 않습니다.';
-   pill.textContent=`입력한 기온: ${t.toFixed(1)}°C`;
-   qtitle.textContent='논문 관측 범위 밖의 기온이에요.';
-   qmean.textContent='해석 보류';
-   range.textContent='연구 범위 안의 값을 입력하면 실제 논문 결과를 적용합니다.';
-   return;
- }
- const g=groups.find(x=>t<=x.max);
- msg.textContent='';
- pill.textContent=`입력한 기온: ${Number.isInteger(t)?t:t.toFixed(1)}°C`;
- qtitle.textContent=g.title;
- qmean.textContent=g.mean;
- range.textContent=g.range;
-}
-btn.addEventListener('click',analyze);
-input.addEventListener('keydown',e=>{if(e.key==='Enter')analyze()});
-analyze();
-</script>
-</body>
-</html>
+const groups=[{max:14.35,title:'입력한 기온은 낮은 기온 구간(Q1)에 해당해요!',mean:'0.03837',range:'논문 관측 구간: 4.5°C ~ 14.35°C'},{max:19.2,title:'입력한 기온은 중간 기온 구간(Q2)에 해당해요!',mean:'0.03687',range:'논문 관측 구간: 14.35°C 초과 ~ 19.20°C'},{max:23.05,title:'입력한 기온은 중간 기온 구간(Q3)에 해당해요!',mean:'0.04536',range:'논문 관측 구간: 19.20°C 초과 ~ 23.05°C'},{max:28.8,title:'입력한 기온은 높은 기온 구간(Q4)에 해당해요!',mean:'0.03600',range:'논문 관측 구간: 23.05°C 초과 ~ 28.8°C'}];const input=document.getElementById('temp'),msg=document.getElementById('msg'),pill=document.getElementById('pill'),qt=document.getElementById('qtitle'),qm=document.getElementById('qmean'),rg=document.getElementById('range'),modal=document.getElementById('modal');function run(){let raw=input.value.trim(),t=Number(raw);if(!raw||!Number.isFinite(t)){msg.textContent='기온을 숫자로 입력해 주세요. 예: 25';return false}if(t<-80||t>70){msg.textContent='기온값을 다시 확인해 주세요. 입력 가능한 범위는 -80~70°C입니다.';return false}pill.textContent=`입력한 기온: ${Number.isInteger(t)?t:t.toFixed(1)}°C`;if(t<4.5||t>28.8){msg.textContent='논문 관측 범위(4.5~28.8°C) 밖이라 임의 예측하지 않습니다.';qt.textContent='논문 관측 범위 밖의 기온이에요.';qm.textContent='해석 보류';rg.textContent='연구 범위 안의 값을 입력하면 실제 논문 결과를 적용합니다.';return true}let g=groups.find(x=>t<=x.max);msg.textContent='';qt.textContent=g.title;qm.textContent=g.mean;rg.textContent=g.range;return true}document.getElementById('analyze').onclick=run;input.onkeydown=e=>{if(e.key==='Enter')run()};document.getElementById('evidence').onclick=()=>{if(run())modal.classList.add('open')};function close(){modal.classList.remove('open')}document.getElementById('x').onclick=close;document.getElementById('ok').onclick=close;modal.onclick=e=>{if(e.target===modal)close()};document.onkeydown=e=>{if(e.key==='Escape')close()};run();
+</script></body></html>
