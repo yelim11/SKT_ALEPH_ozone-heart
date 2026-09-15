@@ -1,63 +1,76 @@
 <!doctype html>
 <html lang="ko">
 <head>
-<meta charset="utf-8">
-<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<meta name="theme-color" content="#f49abc">
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#d93d82">
 <title>쇼콜라와 보는 오존도</title>
-<meta name="description" content="2025년 서울 기온·오존 연구 결과를 실제로 사용하는 논문 기반 웹앱">
+<meta name="description" content="2025년 서울 91일 기온·오존 연구 결과를 실제로 사용하는 BR-B 논문 기반 앱">
 <style>
-*{box-sizing:border-box}html,body{margin:0;min-height:100%;background:#f8c4dc;font-family:Pretendard,"Noto Sans KR",Arial,sans-serif;color:#7b1e49}body{display:flex;justify-content:center}.stage{position:relative;width:min(100vw,1024px);aspect-ratio:1024/1365;overflow:hidden;background:#f7c0d9;box-shadow:0 0 50px rgba(117,21,65,.23)}.design{position:absolute;inset:0;width:100%;height:100%;display:block;object-fit:cover;user-select:none;-webkit-user-drag:none}.temp-input{position:absolute;z-index:5;left:24.2%;top:35.18%;width:29.6%;height:2.95%;border:0;outline:0;border-radius:10px;background:rgba(255,255,255,.97);color:#82365c;font-weight:800;font-size:clamp(10px,1.75vw,18px);padding:0 8px;box-shadow:none}.temp-input::placeholder{color:#9fa0b0;font-weight:600}.analyze{position:absolute;z-index:6;left:61.6%;top:34.75%;width:23.9%;height:4.35%;border:0;border-radius:999px;background:transparent;cursor:pointer}.analyze:focus-visible{outline:3px solid #8d1b54;outline-offset:2px}.analyze:hover{background:rgba(255,255,255,.12);box-shadow:0 0 22px rgba(255,255,255,.8)}.result-pill{position:absolute;z-index:5;left:79.2%;top:42.45%;width:15.3%;height:2.65%;border-radius:999px;background:rgba(255,247,251,.98);display:flex;align-items:center;justify-content:center;color:#dc3272;font-weight:900;font-size:clamp(8px,1.22vw,13px);white-space:nowrap}.result-copy{position:absolute;z-index:5;left:19.8%;top:46.15%;width:30.4%;height:7.55%;padding:2px 4px;background:rgba(255,255,255,.965);display:flex;flex-direction:column;justify-content:center;color:#243960;font-size:clamp(8px,1.18vw,13px);line-height:1.42;border-radius:7px}.result-copy b{display:block;color:#f12369;font-size:clamp(9px,1.35vw,15px);line-height:1.3;margin-bottom:3px}.result-copy strong{color:#f12369;font-weight:900}.toast{position:absolute;z-index:20;left:50%;top:39.3%;transform:translate(-50%,-8px);max-width:72%;padding:9px 16px;border-radius:999px;background:rgba(100,23,60,.94);color:white;font-size:clamp(9px,1.28vw,14px);font-weight:800;opacity:0;pointer-events:none;transition:.18s ease;text-align:center;box-shadow:0 6px 20px rgba(94,21,58,.24)}.toast.show{opacity:1;transform:translate(-50%,0)}.sr{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}@media(max-width:560px){.stage{width:100vw}.temp-input{font-size:2.4vw;padding:0 4px}.result-pill{font-size:1.75vw}.result-copy{font-size:1.75vw}.result-copy b{font-size:2vw}.toast{font-size:2vw;padding:7px 10px}}
+:root{--p:#e33f83;--d:#8d1c50;--l:#f3b0ca;--i:#4c2840;--bg:#fff8fb;--s:0 14px 36px #8f245522}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:linear-gradient(#f7a7c8,#ffe8f1 22%,#fff8fb);font-family:Pretendard,"Noto Sans KR",Arial,sans-serif;color:var(--i)}
+.wrap{max-width:1122px;margin:auto;background:#fffafc;min-height:100vh;box-shadow:0 0 60px #7a204033}.nav{position:sticky;top:0;z-index:5;padding:10px 20px;background:#8b1f51ee;color:#fff;font-weight:800}.hero img{display:block;width:100%}
+main{padding:0 24px 50px}.box{margin:22px 0;border:2px solid var(--l);border-radius:24px;background:#fff;box-shadow:var(--s);overflow:hidden}.intro{margin-top:18px;padding:22px;text-align:center}.intro h1{margin:0;color:var(--d);font-size:clamp(22px,3vw,34px)}.intro p{max-width:850px;margin:12px auto 0;line-height:1.65;font-weight:700}.intro strong{color:var(--p)}
+.steps{display:grid;grid-template-columns:repeat(3,1fr);gap:9px;margin-top:16px}.step{padding:12px;border:1px solid #f1c4d5;border-radius:14px;background:#fff6fa;font-size:14px}.step b{display:block;color:#b52260;margin-bottom:4px}
+.head{padding:17px 20px;text-align:center;background:linear-gradient(#fff5f9,#ffe0ec);border-bottom:1px solid #f2bfd2}.head h2{margin:0;color:#ad1f5a}.head p{margin:5px 0 0;font-size:13px;color:#79586a}
+.an{padding:22px}.row{display:grid;grid-template-columns:1fr 180px;gap:12px;max-width:760px;margin:auto}.in{display:flex;align-items:center;border:2px solid #eca2be;border-radius:16px;background:#fff;overflow:hidden;min-height:60px}.in b{padding:0 14px;color:#9b2a5b;white-space:nowrap}.in input{flex:1;min-width:0;border:0;outline:0;font-size:22px;padding:0 12px}.unit{padding-right:14px;color:var(--p);font-weight:900}.go{border:0;border-radius:16px;background:linear-gradient(#ff83b4,#d7266d);color:#fff;font-size:18px;font-weight:900;cursor:pointer}.go:focus-visible{outline:3px solid #5c1638;outline-offset:2px}
+.err{text-align:center;color:#af1d58;font-weight:800;min-height:25px;padding-top:8px}.quick{text-align:center}.quick button{margin:3px;border:1px solid #ebb0c6;border-radius:999px;background:#fff7fb;color:#962b58;padding:6px 10px;cursor:pointer}
+.res{padding:0 22px 22px}.bar{display:flex;justify-content:space-between;gap:10px;align-items:center;padding:12px 15px;border:1px solid #efb4ca;border-radius:15px;background:#fff3f8}.bar b{color:#a91d56;font-size:19px}.pill{padding:7px 10px;border-radius:999px;background:#fff;border:1px solid #efa8c4;color:#c31f62;font-weight:900;font-size:13px}
+.grid{display:grid;grid-template-columns:repeat(3,1fr);gap:12px;margin-top:12px}.card{border:1px solid #efbacd;border-radius:18px;padding:16px;background:#fff;min-height:175px}.card.pu{background:#faf4ff;border-color:#d8bde7}.card h3{margin:0;color:#b5205c;font-size:17px}.card.pu h3{color:#74409d}.big{font-size:29px;font-weight:950;color:#dd276d;margin:12px 0}.card p{font-size:13px;line-height:1.55;margin:7px 0}.note{font-size:12px;color:#765d6a}
+.verdict{margin-top:12px;padding:14px 16px;border:2px solid #e8a5c0;border-radius:16px;background:#fff4f8;line-height:1.65}.verdict strong{color:#b41d59}
+.paper{display:grid;grid-template-columns:1fr 1fr;gap:14px;padding:20px}.sub{border:1px solid #efbdd0;border-radius:16px;padding:16px}.sub h3{margin:0 0 10px;color:#a71c55}.metrics{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.m{padding:10px;background:#fff4f8;border-radius:12px;text-align:center}.m b{display:block;color:#bd1f60;font-size:20px}.m span{font-size:11px;color:#705463}
+.day{display:grid;grid-template-columns:1.2fr .7fr .7fr;gap:7px;padding:9px;border:1px solid #efd0dc;border-radius:11px;margin:7px 0;font-size:12px}.day span{text-align:right}.warn{margin-top:10px;padding:11px;border-radius:12px;background:#f8f0ff;font-size:12px;line-height:1.55}
+.guide{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;padding:20px}.guide div{padding:15px;border:1px solid #efbfd0;border-radius:15px}.guide b{color:#b21f5b}.guide p{font-size:13px;line-height:1.55;margin:6px 0 0}
+footer{text-align:center;padding:28px;background:linear-gradient(#df568d,#aa2d65);color:#fff;font-size:13px}
+@media(max-width:760px){main{padding:0 14px 40px}.steps,.grid,.paper,.guide{grid-template-columns:1fr}.row{grid-template-columns:1fr}.go{min-height:54px}.metrics{grid-template-columns:repeat(3,1fr)}}
+@media(max-width:480px){.intro{padding:18px 13px}.steps,.metrics{grid-template-columns:1fr}.an,.res,.paper,.guide{padding-left:13px;padding-right:13px}.bar{align-items:flex-start;flex-direction:column}.day{grid-template-columns:1fr 1fr}.day span:last-child{grid-column:1/-1;text-align:left}}
 </style>
 </head>
 <body>
-<main class="stage" aria-label="쇼콜라와 보는 오존도 앱">
-  <img id="design" class="design" alt="쇼콜라와 듀크가 등장하는 핑크 하트 보석 디자인의 오존 분석 앱 화면">
-  <label class="sr" for="temp">일평균 기온</label>
-  <input id="temp" class="temp-input" type="number" step="0.1" inputmode="decimal" value="25" aria-label="기온 입력">
-  <button id="analyze" class="analyze" type="button" aria-label="입력한 기온 분석하기"></button>
-  <div id="pill" class="result-pill" aria-live="polite">입력한 기온: 25°C</div>
-  <div id="resultCopy" class="result-copy" aria-live="polite">
-    <b>입력한 기온은 높은 기온 구간에 해당해요!</b>
-    <span>이 구간의 평균 O₃ 자료값은 <strong>0.03600</strong>이었습니다.</span>
-  </div>
-  <div id="toast" class="toast" role="status" aria-live="polite"></div>
+<div class="wrap">
+<div class="nav">쇼콜라와 보는 오존도 · 논문 기반 서울 오존 안내</div>
+<header class="hero"><img src="assets/hero.webp" alt="쇼콜라와 듀크, 서울 풍경과 하트 보석으로 꾸민 오존도 앱 배너"></header>
+<main>
+<section class="box intro">
+<div style="color:#c12364;font-weight:900;font-size:13px">과제 10 논문을 실제 기능으로 바꾼 BR-B 앱</div>
+<h1>「2025년 오존 시즌 서울의 일평균 기온과 일별 오존 자료값의 관계」</h1>
+<p>이 앱은 <strong>서울에서 외출 전 대기질을 판단하려는 사람</strong>이 기온 하나만 보고 오존 수준을 단정하지 않도록, 논문의 실제 분석 결과와 91일 자료를 이용해 돕습니다.</p>
+<div class="steps"><div class="step"><b>1. 기온 입력</b>일평균 기온을 입력합니다.</div><div class="step"><b>2. 논문 결과 확인</b>사분위 구간과 평균 O₃ 자료값을 봅니다.</div><div class="step"><b>3. 실제 자료 비교</b>비슷한 기온의 연구일과 결론을 확인합니다.</div></div>
+</section>
+
+<section class="box">
+<div class="head"><h2>기온으로 논문 결과 확인하기</h2><p>현재 오존을 예측하는 기능이 아니라, 논문에서 관측된 범위와 결과를 설명합니다.</p></div>
+<div class="an"><div class="row"><label class="in"><b>일평균 기온</b><input id="t" type="number" step="0.1" value="25" aria-label="일평균 기온"><span class="unit">°C</span></label><button id="go" class="go">분석하기</button></div><div id="err" class="err" role="status"></div><div class="quick"><button data-t="10">10°C</button><button data-t="18">18°C</button><button data-t="22.8">22.8°C</button><button data-t="25">25°C</button><button data-t="28.8">28.8°C</button></div></div>
+<div class="res"><div class="bar"><b>분석 결과</b><span id="pill" class="pill">입력한 기온: 25°C</span></div><div class="grid">
+<article class="card"><h3>기온 구간</h3><div id="qn" class="big">Q4 높은 기온 구간</div><p id="qr">23.05°C 초과 ~ 28.8°C</p><p class="note">논문에서 사용한 기온 사분위 규칙입니다.</p></article>
+<article class="card"><h3>구간 평균 O₃ 자료값</h3><div id="om" class="big">0.03600</div><p>과제 10 원자료를 기온 사분위로 나누어 계산한 평균입니다.</p></article>
+<article class="card pu"><h3>논문 핵심 결론</h3><div class="big" style="color:#7844a2">뚜렷한 관계 없음</div><p>91일 전체에서 기온과 O₃ 사이의 통계적으로 유의한 관계가 확인되지 않았습니다.</p><p class="note">Pearson r=-0.070, p=0.511</p></article>
+</div><div id="verdict" class="verdict"><strong>해석:</strong> 25°C는 높은 기온 구간에 속하지만, 기온 하나만으로 일별 오존 수준을 설명하기 어렵습니다. 현재 오존은 공식 대기질 정보를 함께 확인해야 합니다.</div></div>
+</section>
+
+<section class="box">
+<div class="head"><h2>논문 결과를 실제로 쓰는 근거</h2><p>앱의 숫자와 규칙은 과제 10 결과를 그대로 사용합니다.</p></div>
+<div class="paper"><div class="sub"><h3>전체 분석</h3><div class="metrics"><div class="m"><b>91일</b><span>표본</span></div><div class="m"><b>-0.070</b><span>Pearson r</span></div><div class="m"><b>0.511</b><span>p-value</span></div><div class="m"><b>-0.048</b><span>Spearman ρ</span></div><div class="m"><b>0.652</b><span>p-value</span></div><div class="m"><b>0.00486</b><span>R²</span></div></div><div class="warn"><b>결론:</b> “기온이 높을수록 오존이 높을 것이다”라는 최초 가설은 이 표본에서 지지되지 않았습니다. 그래서 앱도 현재 오존을 기온만으로 예측하지 않습니다.</div></div>
+<div class="sub"><h3>입력 기온과 가까운 실제 연구일</h3><div id="days"><div class="day"><b>자료 불러오는 중</b><span>-</span><span>-</span></div></div><div class="warn">비슷한 기온에서도 O₃ 자료값이 달라질 수 있다는 점을 91일 실제 자료로 확인합니다.</div></div></div>
+</section>
+
+<section class="box"><div class="head"><h2>이 앱을 보고 나서 할 일</h2></div><div class="guide"><div><b>기온만으로 단정하지 않기</b><p>높은 기온이 곧 높은 오존을 뜻한다고 가정하지 않습니다.</p></div><div><b>공식 대기질 정보 함께 보기</b><p>외출 전에는 실시간 대기질 서비스에서 현재 오존 상태를 별도로 확인합니다.</p></div><div><b>다른 조건도 생각하기</b><p>일사량, 강수, 바람 등 다른 기상 요인도 함께 작용할 수 있음을 기억합니다.</p></div></div></section>
+<p style="text-align:center;font-size:12px;color:#755a68">개인정보·비밀번호·토큰·API 키를 사용하지 않습니다. 연구 범위 밖 값은 외삽하지 않습니다.</p>
 </main>
-<script src="assets/d01.js?v=3"></script>
-<script src="assets/d02.js?v=3"></script>
-<script src="assets/d03.js?v=3"></script>
-<script src="assets/d04.js?v=3"></script>
-<script src="assets/d05.js?v=3"></script>
-<script src="assets/d06.js?v=3"></script>
-<script src="assets/d07.js?v=3"></script>
-<script src="assets/d08.js?v=3"></script>
-<script src="assets/d09.js?v=3"></script>
-<script src="assets/d10.js?v=3"></script>
-<script src="assets/d11.js?v=3"></script>
-<script src="assets/d12.js?v=3"></script>
-<script src="assets/d13.js?v=3"></script>
-<script src="assets/d14.js?v=3"></script>
-<script src="assets/d15.js?v=3"></script>
-<script src="assets/d16.js?v=3"></script>
+<footer><b>쇼콜라와 보는 오존도</b><br>논문 결과를 “그래서 어떻게 도울 수 있는가”로 바꾼 BR-B 애플리케이션 · 현재 대기질 예측 서비스가 아님</footer>
+</div>
+
 <script>
-const design=document.getElementById('design');
-design.src='data:image/webp;base64,'+(window.__DESIGN_B64||'');
-window.__DESIGN_B64='';
-const input=document.getElementById('temp');
-const btn=document.getElementById('analyze');
-const pill=document.getElementById('pill');
-const resultCopy=document.getElementById('resultCopy');
-const toast=document.getElementById('toast');
-const fallback={min:4.5,max:28.8,q:[14.9,18.9,23.05]};
-const paperMeans=[0.0383652174,0.0368666667,0.0453619048,0.036];
-let stats={...fallback};
-function quantile(sorted,p){const pos=(sorted.length-1)*p,base=Math.floor(pos),rest=pos-base;return sorted[base+1]!==undefined?sorted[base]+rest*(sorted[base+1]-sorted[base]):sorted[base]}
-function showToast(text){toast.textContent=text;toast.classList.add('show');clearTimeout(showToast.t);showToast.t=setTimeout(()=>toast.classList.remove('show'),2600)}
-function fmt(n,d=1){return Number(n).toFixed(d).replace(/\.0$/,'')}
-function rangeText(i){const q=stats.q;if(i===0)return `${fmt(stats.min)}~${fmt(q[0])}°C`;if(i===1)return `${fmt(q[0])}~${fmt(q[1])}°C`;if(i===2)return `${fmt(q[1])}~${fmt(q[2])}°C`;return `${fmt(q[2])}~${fmt(stats.max)}°C`}
-function analyze(){const raw=input.value.trim();if(raw===''){showToast('기온을 숫자로 입력해 주세요.');input.focus();return}const t=Number(raw);if(!Number.isFinite(t)){showToast('올바른 숫자를 입력해 주세요.');input.focus();return}pill.textContent=`입력한 기온: ${fmt(t)}°C`;if(t<stats.min||t>stats.max){resultCopy.innerHTML=`<b>논문 관측 범위 밖의 기온이에요.</b><span>연구 범위는 <strong>${fmt(stats.min)}~${fmt(stats.max)}°C</strong>였습니다. 범위 밖 값은 임의로 예측하지 않습니다.</span>`;showToast('논문 관측 범위 안의 값으로 다시 확인해 볼 수 있어요.');return}const q=stats.q;const i=t<=q[0]?0:t<=q[1]?1:t<=q[2]?2:3;const names=['낮은 기온 구간(Q1)','중간-낮은 기온 구간(Q2)','중간-높은 기온 구간(Q3)','높은 기온 구간(Q4)'];resultCopy.innerHTML=`<b>입력한 기온은 ${names[i]}에 해당해요!</b><span>${rangeText(i)} 구간의 평균 O₃ 자료값은 <strong>${paperMeans[i].toFixed(5)}</strong>이었습니다.</span>`}
-async function loadData(){try{const r=await fetch('data/raw_seoul_2025_ozone_temperature.csv',{cache:'no-store'});if(!r.ok)throw new Error('data');const text=await r.text();const rows=text.trim().split(/\r?\n/);const head=rows[0].split(',');const ti=head.indexOf('temperature_avg');const vals=rows.slice(1).map(x=>Number(x.split(',')[ti])).filter(Number.isFinite).sort((a,b)=>a-b);if(vals.length){stats={min:vals[0],max:vals[vals.length-1],q:[quantile(vals,.25),quantile(vals,.5),quantile(vals,.75)]}}}catch(e){}analyze()}
-btn.addEventListener('click',analyze);input.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();analyze()}});input.addEventListener('focus',()=>input.select());loadData();
+'use strict';
+const P={min:4.5,max:28.8,c:[14.35,19.2,23.05],m:[.0383652174,.0368666667,.0453619048,.036],n:['Q1 낮은 기온 구간','Q2 중간-낮은 기온 구간','Q3 중간-높은 기온 구간','Q4 높은 기온 구간']};
+const fallback=[{date:'2025-06-19',t:28.8,o3:.0113},{date:'2025-06-30',t:28.4,o3:.0108},{date:'2025-06-16',t:22.8,o3:.0691},{date:'2025-06-17',t:24.9,o3:.0634},{date:'2025-05-21',t:24.8,o3:.0327},{date:'2025-06-06',t:24.7,o3:.0471}];
+let rows=fallback.slice();
+const $=id=>document.getElementById(id),inp=$('t'),err=$('err'),pill=$('pill'),qn=$('qn'),qr=$('qr'),om=$('om'),ver=$('verdict'),days=$('days');
+function ft(v){v=Number(v);return Number.isInteger(v)?String(v):v.toFixed(2).replace(/0+$/,'').replace(/\.$/,'')}
+function qi(t){return t<=P.c[0]?0:t<=P.c[1]?1:t<=P.c[2]?2:3}
+function rg(i){return i===0?`${P.min}°C ~ ${P.c[0]}°C 이하`:i===1?`${P.c[0]}°C 초과 ~ ${P.c[1]}°C 이하`:i===2?`${P.c[1]}°C 초과 ~ ${P.c[2]}°C 이하`:`${P.c[2]}°C 초과 ~ ${P.max}°C`}
+function near(t){const a=rows.map(x=>({...x,d:Math.abs(x.t-t)})).sort((a,b)=>a.d-b.d||a.date.localeCompare(b.date)).slice(0,3);days.innerHTML=a.map(x=>`<div class="day"><b>${x.date}</b><span>${ft(x.t)}°C</span><span>O₃ ${x.o3.toFixed(4)}</span></div>`).join('')}
+function run(){err.textContent='';const raw=inp.value.trim();if(!raw){err.textContent='기온을 숫자로 입력해 주세요.';return}const t=Number(raw);if(!Number.isFinite(t)){err.textContent='올바른 숫자를 입력해 주세요.';return}pill.textContent=`입력한 기온: ${ft(t)}°C`;if(t<P.min||t>P.max){qn.textContent='논문 관측 범위 밖';qr.textContent=`연구 범위: ${P.min}°C ~ ${P.max}°C`;om.textContent='계산하지 않음';ver.innerHTML=`<strong>해석:</strong> ${ft(t)}°C는 논문의 관측 범위 밖입니다. 연구하지 않은 범위를 임의로 예측하지 않습니다.`;near(Math.min(P.max,Math.max(P.min,t)));err.textContent='연구 범위 밖 값은 외삽하지 않습니다.';return}const i=qi(t);qn.textContent=P.n[i];qr.textContent=rg(i);om.textContent=P.m[i].toFixed(5);ver.innerHTML=`<strong>해석:</strong> ${ft(t)}°C는 ${P.n[i]}에 속합니다. 이 구간 평균 O₃ 자료값은 ${P.m[i].toFixed(5)}이지만, 연구 전체에서는 기온과 O₃의 뚜렷한 관계가 확인되지 않았습니다. 기온 하나만으로 현재 오존 수준을 단정하면 안 됩니다.`;near(t)}
+async function load(){try{const r=await fetch('data/raw_seoul_2025_ozone_temperature.csv',{cache:'no-store'});if(!r.ok)throw 0;const x=(await r.text()).trim().split(/\r?\n/),h=x[0].split(','),di=h.indexOf('date'),ti=h.indexOf('temperature_avg'),oi=h.indexOf('o3');const a=x.slice(1).map(s=>{const c=s.split(',');return{date:c[di],t:Number(c[ti]),o3:Number(c[oi])}}).filter(x=>x.date&&Number.isFinite(x.t)&&Number.isFinite(x.o3));if(a.length>=80)rows=a}catch(e){}run()}
+$('go').onclick=run;inp.addEventListener('keydown',e=>{if(e.key==='Enter'){e.preventDefault();run()}});document.querySelectorAll('[data-t]').forEach(b=>b.onclick=()=>{inp.value=b.dataset.t;run()});load();
 </script>
-</body>
-</html>
+</body></html>
